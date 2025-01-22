@@ -1,6 +1,6 @@
 [project]
 name = "masscode-py"
-version = "0.9.0"
+version = "0.9.1"
 description = "python wrapper for masscode"
 authors = [
     { name = "ZackaryW", email = "36378555+ZackaryW@users.noreply.github.com" }

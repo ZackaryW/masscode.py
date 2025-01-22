@@ -6,7 +6,7 @@ import typing
 import requests
 import json
 from masscode.model import Folder, Snippet, Tag
-from masscode.utils import Config, kill_masscode_1, extract_masscode_path, detach_open, is_port_in_use
+from masscode.utils import Config, kill_masscode_1, extract_masscode_path, detach_open, is_port_in_use, generate_id
 
 class MasscodeApi:
     API_URL = "http://localhost:3033"
@@ -157,3 +157,22 @@ class MasscodeApi:
     def get_tag(cls, id : str) -> Tag:
         response = cls._handle_request("get", f"tags/{id}")
         return Tag(**response)
+
+    @classmethod
+    def create_folder(cls, **kwargs : typing.Unpack[Folder]) -> Folder:
+        if "id" not in kwargs:
+            kwargs["id"] = generate_id()
+        return cls.add_folder(Folder(**kwargs))
+
+    @classmethod
+    def create_snippet(cls, **kwargs : typing.Unpack[Snippet]) -> Snippet:
+        if "id" not in kwargs:
+            kwargs["id"] = generate_id()
+        return cls.add_snippet(Snippet(**kwargs))
+
+    @classmethod
+    def create_tag(cls, **kwargs : typing.Unpack[Tag]) -> Tag:
+        if "id" not in kwargs:
+            kwargs["id"] = generate_id()
+        return cls.add_tag(Tag(**kwargs))
+

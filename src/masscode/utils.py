@@ -4,6 +4,8 @@ import socket
 from time import sleep
 import os
 import json
+import base64
+import uuid
 
 class Config:
     TOGGLE_STORE :  bool = False
@@ -81,3 +83,9 @@ def detach_open(path : str):
             | subprocess.CREATE_BREAKAWAY_FROM_JOB
         ),
     )
+    
+
+def generate_id(length=8):
+    uuido = uuid.uuid4()
+    encoded = base64.b64encode(uuido.bytes).decode()
+    return encoded[:length]
