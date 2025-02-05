@@ -60,7 +60,7 @@ def kill_masscode_1():
 @Config.cache("MASSCODE_EXE_PATH")
 def extract_masscode_path():
     if platform.system() == "Windows":
-        raw = os.popen("wmic process where \"name='masscode.exe'\" get ExecutablePath").read().strip()
+        raw = os.popen('powershell "Get-CimInstance Win32_Process -Filter \\"name=\'masscode.exe\'\\" | Select-Object -ExpandProperty ExecutablePath"').read().strip()
         try:
             path = raw.splitlines()[2].strip()
         except IndexError:
