@@ -2,8 +2,38 @@
 A Python wrapper for [massCode](https://masscode.io/) - a free and open source code snippets manager for developers.
 
 ## Install
+
+### Basic Installation
 ```bash
 pip install masscode-py
+```
+
+### Optional Features
+
+The package provides optional features that can be installed using extras:
+
+#### Fast JSON Processing
+For faster JSON processing using `orjson`:
+```bash
+pip install "masscode-py[fast]"
+```
+
+#### CLI Support
+To install with CLI support using `click`:
+```bash
+pip install "masscode-py[cli]"
+```
+
+#### All Features
+To install with all optional features:
+```bash
+pip install "masscode-py[fast,cli]"
+```
+
+### Development
+For development, the project uses `rye` for dependency management:
+```bash
+rye sync  # Install all dependencies including dev dependencies
 ```
 
 ## Features
@@ -129,8 +159,18 @@ masscode/
 ├── utils/
 │   ├── prop.py     # Property utilities
 │   └── proc.py     # Process utilities
-└── cli.py          # Command-line interface
+└── cli.py          # Command-line interface (requires click)
 ```
+
+### Dependencies
+- Core:
+  - `requests>=2.32.3`: HTTP client for API interactions
+- Optional:
+  - `orjson>=3.10.18`: Fast JSON processing (optional)
+  - `click>=8.2.1`: CLI framework (optional)
+- Development:
+  - `hatchling`: Build system
+  - `ruff`: Linting
 
 ### Memory Bank
 The project maintains a memory bank for documentation and context:
