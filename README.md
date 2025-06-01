@@ -172,15 +172,6 @@ masscode/
   - `hatchling`: Build system
   - `ruff`: Linting
 
-### Memory Bank
-The project maintains a memory bank for documentation and context:
-- `projectbrief.md`: Core requirements and goals
-- `productContext.md`: Project purpose and user experience
-- `systemPatterns.md`: Architecture and design patterns
-- `techContext.md`: Technical details and dependencies
-- `activeContext.md`: Current work focus and decisions
-- `progress.md`: Project status and evolution
-
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
